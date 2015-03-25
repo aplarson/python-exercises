@@ -16,6 +16,13 @@ class Set:
         return result
     def present(self, key):
         return key in self.store
+    def subtract(self, other_set):
+        result = Set()
+        items = self.store.keys()
+        for item in items:
+            if not other_set.present(item):
+                result.insert(item)
+        return result
     def union(self, other_set):
         result = Set()
         items = self.store.keys()
@@ -32,6 +39,8 @@ s1.insert("world")
 s2 = Set()
 s2.insert("world")
 s2.insert("domination")
+print(s1.subtract(s2).store)
+print(s2.subtract(s1).store)
 print(s1.intersection(s2).store)
 print(s2.intersection(s1).store)
 print(s1.union(s2).store)

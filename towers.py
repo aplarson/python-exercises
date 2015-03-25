@@ -1,5 +1,6 @@
 class Towers:
-    stacks = [[3, 2, 1], [], []]
+    def __init__(self):
+        self.stacks = [[3, 2, 1], [], []]
     def won(self):
         return len(self.stacks[1]) == 3 or len(self.stacks[2]) == 3
     def move(self, source, dest):
